@@ -63,11 +63,14 @@
         }
 
         const totalHours = end > start ? end - start : 24 - start + end;
-        const ot1_5 = Math.max(0, Math.min(totalHours - 8, 4));
-        const ot2 = Math.max(0, totalHours - 12);
+        let ot1_5 = Math.max(0, Math.min(totalHours - 8, 4));
+        let ot2 = Math.max(0, totalHours - 12);
 
-        // Calculate equivalent OT hours
-        const equivalentOT = (ot1_5 * 1.5 + ot2 * 2).toFixed(2);
+        // Add golden hour if totalHours >= 16
+        let goldenHour = totalHours >= 16 ? 1 : 0;
+
+        // Calculate equivalent OT including the golden hour
+        const equivalentOT = (ot1_5 * 1.5 + ot2 * 2 + goldenHour).toFixed(2);
 
         // Store the extracted data with equivalent OT hours
         scheduleData.push({
@@ -78,7 +81,8 @@
             totalHours: totalHours.toFixed(2),
             ot1_5: ot1_5.toFixed(2),
             ot2: ot2.toFixed(2),
-            equivalentOT
+            equivalentOT,
+            goldenHour: goldenHour.toFixed(2) // Optional: log golden hour for clarity
         });
     }
 
