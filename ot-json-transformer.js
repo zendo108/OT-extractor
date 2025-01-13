@@ -98,5 +98,18 @@
                 { "id": "5_date", "date": "Fri 1/10", "ot1_5": "0.00", "ot2": "0.00", "equivalentOT": "0.00" },
                 { "id": "6_date", "date": "Sat 1/11", "ot1_5": "3.00", "ot2": "1.00", "equivalentOT": "5.00" },
                 { "id": "7_date", "date": "Sun 1/12", "ot1_5": "0.00", "ot2": "0.00", "equivalentOT": "0.00" }
-            ],
-            "tot
+                        ],
+            "totals": { "ot1_5": "5.60", "ot2": "1.60", "equivalentOT": "9.30" }
+        }
+    ];
+
+    // Generate CSV
+    const csvData = generateOTComparisonCSV(electricians);
+
+    // Prompt manual copying
+    console.log(
+        "Copy the CSV below manually and paste it into Excel:\n\n",
+        csvData
+    );
+})();
+
