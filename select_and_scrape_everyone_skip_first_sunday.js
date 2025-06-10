@@ -32,7 +32,7 @@
     "Buonassisi, David M",
     "Caulfield, Sean P",
     "Degrange, Christopher",
-    // "Fitzgerald, Timothy",
+    "Desjardins, Kenneth S",
     "Morancie, David"
     // Add all other active workers here
   ];
